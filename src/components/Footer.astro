@@ -1,0 +1,83 @@
+---
+const { year = new Date().getFullYear().toString() } = Astro.props;
+const links = [
+  {
+    name: "Linkedin",
+    href: "https://www.linkedin.com/in/shrey-sadhukhan-a96590201/",
+  },
+  {
+    name: "Github",
+    href: "https://github.com/shreyzeous21",
+  },
+  {
+    name: "Dev.to",
+    href: "https://dev.to/shreyzeous21",
+  },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/shrey_sadhukha/",
+  },
+];
+---
+
+<footer>
+  <small>Copyright &copy; {year} | All rights reserved</small>
+  <ul>
+    {
+      links.map((index) => (
+        <li>
+          <a href={index.href} target="_blank">
+            {index.name}
+          </a>
+        </li>
+      ))
+    }
+    <li>
+      <a href="mailto:shrey.sadhukhan21@gail.com">Contact</a>
+    </li>
+  </ul>
+</footer>
+
+<style>
+  footer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    width: calc(100% - 40px);
+    border-top: 1px solid rgb(30, 30, 30, 0.3);
+    text-align: center;
+    padding: 20px;
+  }
+
+  footer > ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 30px;
+    padding: 0;
+  }
+
+  footer > ul > li > a {
+    color: #1e1e1e;
+    transition: all 0.3s;
+    text-decoration: none;
+  }
+
+  footer > ul > li > a:hover {
+    color: white;
+    background: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: all 0.3s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  @media screen and (max-width: 700px) {
+    footer {
+      justify-content: center;
+    }
+  }
+</style>
